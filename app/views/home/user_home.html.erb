@@ -1,0 +1,8 @@
+<%= link_to destroy_user_session_path, method: :delete do %>Log out<% end %>
+<br>
+<br>
+<% if @match.nil? %>
+  we're working on pairing you up
+<% else %>
+  <%= @match.expert.email %>
+<% end %>

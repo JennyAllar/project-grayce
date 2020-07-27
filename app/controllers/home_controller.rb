@@ -1,7 +1,10 @@
 class HomeController < ApplicationController
-  skip_before_action :authenticate_user!, :only => [:index]
+  before_action :authenticate_user!
 
   def index
-    render :html => "up 'n runnin'"
+  end
+
+  def user_home
+    @match = Match.find_by(user_id: current_user.id)
   end
 end

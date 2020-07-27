@@ -1,0 +1,13 @@
+
+<% if current_user || current_expert %>
+	<%= link_to destroy_user_session_path, method: :delete do %>Log out<% end %>
+<% end %>
+
+<% if current_expert %>
+	<%= link_to dashboard_path, class: 'login-button' do %>Go to Dashboard<% end %>
+<% end %>
+
+
+<h1> I am a: </h1>
+<%= button_to 'User', user_home_path, method: :get %>
+<%= button_to 'Expert', dashboard_path, method: :get %>
