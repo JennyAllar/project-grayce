@@ -1,6 +1,10 @@
+<%= link_to 'Back to Admin Portal', admin_path %>
+
+<h3>Create a New Match:</h3>
 <%= form_for :match ,:url=>{:action =>"create"} do |f| %>
   <%= f.label :expert %>
   <%= f.collection_select :expert_id, @experts, :id, :email %>
   <%= f.label :user %>
   <%= f.collection_select :user_id, @users, :id, :email %>
+  <%= f.submit %>
 <% end %>
