@@ -1,8 +1,11 @@
 <%= link_to destroy_user_session_path, method: :delete do %>Log out<% end %>
 <br>
 <br>
+<h1>My User Dashboard</h1>
+<hr>
 <% if @match.nil? %>
-  we're working on pairing you up
+  We're working on pairing you up.
 <% else %>
+  <h3>You've been matched with: </h3>
   <%= @match.expert.email %>
 <% end %>

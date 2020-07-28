@@ -1,0 +1,10 @@
+<% if current_expert %>
+  <%= link_to 'Back to Matches', dashboard_url %>
+<% elsif current_admin %>
+  <%= link_to 'Back to Admin Portal', admin_url %>
+<% end %>
+
+<h3>Expert:</h3>
+<%= @match.expert.email %>
+<h3>User:</h3>
+<%= @match.user.email %>

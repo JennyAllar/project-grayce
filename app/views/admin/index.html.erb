@@ -1,0 +1,76 @@
+<%= link_to destroy_admin_session_path, method: :delete do %>Log out<% end %>
+<br>
+<br>
+<h1>My Admin Portal</h1>
+<hr>
+<h2>Matches</h2>
+<%= link_to 'Create a Match', new_match_path %>
+<% if @matches.nil? %>
+  There are currently no matches.
+<% else %>
+  <table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Expert</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @matches.each do |match| %>
+    <tr>
+      <td><%= match.user.email %></td>
+      <td><%= match.expert.email %></td>
+      <td><%= link_to "Show", "/matches/#{match.id}" %></td>
+      <td><%= link_to "Edit", "/matches/#{match.id}/edit" %></td>
+      <td><%= link_to "Destroy", "/matches/#{match.id}", method: :delete, data: { confirm: "Are you sure?" } %></td>
+    </tr>
+      <% end %>
+  </tbody>
+  </table>
+<% end %>
+<hr>
+<% if @users.nil? %>
+  There are currently no users.
+<% else %>
+  <h2>Users</h2>
+  <table>
+  <thead>
+    <tr>
+      <th>Email Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= link_to "Show", "/users/#{user.id}" %></td>
+      <td><%= link_to "Edit", "/users/#{user.id}/edit" %></td>
+      <td><%= link_to "Destroy", "/users/#{user.id}", method: :delete, data: { confirm: "Are you sure?" } %></td>
+    </tr>
+      <% end %>
+  </tbody>
+  </table>
+<% end %>
+<hr>
+<% if @experts.nil? %>
+  There are currently no experts.
+<% else %>
+  <h2>Experts</h2>
+  <table>
+  <thead>
+    <tr>
+      <th>Email Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @experts.each do |expert| %>
+    <tr>
+      <td><%= expert.email %></td>
+      <td><%= link_to "Show", "/experts/#{expert.id}" %></td>
+      <td><%= link_to "Edit", "/experts/#{expert.id}/edit" %></td>
+      <td><%= link_to "Destroy", "/experts/#{expert.id}", method: :delete, data: { confirm: "Are you sure?" } %></td>
+    </tr>
+      <% end %>
+  </tbody>
+  </table>
+<% end %>
