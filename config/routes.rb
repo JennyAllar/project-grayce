@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :matches
   resources :users
   resources :experts
+  resources :care_plans
 
   root to: "home#index"
 

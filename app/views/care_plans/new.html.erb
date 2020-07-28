@@ -1,0 +1,12 @@
+<%= form_with model: @care_plan, local: true do |f| %>
+  <%= f.object.errors.full_messages %>
+  <%= f.label 'Summary of Care' %>
+  <%= f.text_area :summary_of_care %>
+  <%= f.label 'Summary of Goals' %>
+  <%= f.text_area :summary_of_goals %>
+  <%= f.label 'Status' %>
+  <%= f.select :status, status_options %>
+  <%= f.label 'Expert' %>
+  <%= f.collection_select :expert_id, experts, :id, :email %>
+  <%= f.submit %>
+<% end %>

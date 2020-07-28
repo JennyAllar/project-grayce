@@ -3,15 +3,19 @@
 <br>
 <h1>My Expert Dashboard</h1>
 <hr>
-<% if @matches.nil? %>
+<% if matches.empty? %>
   You do not currently have any matches.
   <%= current_expert %>
   <%= current_expert.id %>
 <% else %>
   <h3>You've been matched with the following users: </h3>
-  <% @matches.each do |match| %>
+  <% matches.each do |match| %>
     <%= match.user.email %>
     <%= link_to "Show Match", controller: "matches", action: "show", id: match.id %>
     <hr>
   <% end %>
+<% end %>
+
+<% care_plans.each do |plan| %>
+  <%= plan.status %>
 <% end %>
